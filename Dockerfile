@@ -11,7 +11,7 @@ ENV GODEBUG netdns=cgo
 # Pass a tag, branch or a commit using build-arg. This allows a docker image to
 # be built from a specified Git state. The default image will use the Git tip of
 # master by default.
-ARG checkout="master"
+ARG checkout="patch-1"
 
 # Explicitly turn on the use of modules (until this becomes the default).
 ENV GO111MODULE on
@@ -29,7 +29,7 @@ RUN apk add --no-cache --update alpine-sdk \
     nodejs \
     yarn \
     protoc \
-&& git clone --branch $VERSION https://github.com/lightninglabs/lightning-terminal /go/src/github.com/lightninglabs/lightning-terminal\
+&& git clone --branch $VERSION https://github.com/AaronDewes/lightning-terminal /go/src/github.com/lightninglabs/lightning-terminal\
 && cd /go/src/github.com/lightninglabs/lightning-terminal \
 && make install \
 && make go-install-cli
