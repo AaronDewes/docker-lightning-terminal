@@ -1,3 +1,4 @@
+# git branch we're using
 ARG VERSION=patch-1
 
 FROM golang:1.15.5-alpine as builder
@@ -24,6 +25,7 @@ RUN apk add --no-cache --update alpine-sdk \
     nodejs \
     yarn \
     protoc \
+    python \
 && git clone --branch $VERSION https://github.com/AaronDewes/lightning-terminal /go/src/github.com/lightninglabs/lightning-terminal\
 && cd /go/src/github.com/lightninglabs/lightning-terminal \
 && make install \
