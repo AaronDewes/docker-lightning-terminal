@@ -1,4 +1,4 @@
-ARG VERSION=master
+ARG VERSION=patch-1
 
 FROM golang:1.15.5-alpine as builder
 
@@ -7,11 +7,6 @@ ARG VERSION
 # Force Go to use the cgo based DNS resolver. This is required to ensure DNS
 # queries required to connect to linked containers succeed.
 ENV GODEBUG netdns=cgo
-
-# Pass a tag, branch or a commit using build-arg. This allows a docker image to
-# be built from a specified Git state. The default image will use the Git tip of
-# master by default.
-ARG checkout="patch-1"
 
 # Explicitly turn on the use of modules (until this becomes the default).
 ENV GO111MODULE on
