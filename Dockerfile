@@ -12,6 +12,8 @@ ENV GODEBUG netdns=cgo
 # Explicitly turn on the use of modules (until this becomes the default).
 ENV GO111MODULE on
 
+ENV PYTHON python3
+
 # Install dependencies and install/build lightning-terminal.
 RUN apk add --no-cache --update alpine-sdk \
     git \
