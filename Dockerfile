@@ -25,7 +25,7 @@ RUN apk add --no-cache --update alpine-sdk \
     nodejs \
     yarn \
     protoc \
-    python \
+    python3 \
 && git clone --branch $VERSION https://github.com/AaronDewes/lightning-terminal /go/src/github.com/lightninglabs/lightning-terminal\
 && cd /go/src/github.com/lightninglabs/lightning-terminal \
 && make install \
