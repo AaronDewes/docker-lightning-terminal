@@ -1,5 +1,5 @@
 # git branch we're using
-ARG VERSION=patch-1
+ARG VERSION=patch-2
 
 FROM golang:1.15.5-alpine as builder
 
@@ -12,7 +12,7 @@ ENV GODEBUG netdns=cgo
 # Explicitly turn on the use of modules (until this becomes the default).
 ENV GO111MODULE on
 
-ENV PYTHON python3
+ENV PYTHON python2
 
 # Install dependencies and install/build lightning-terminal.
 RUN apk add --no-cache --update alpine-sdk \
@@ -27,7 +27,7 @@ RUN apk add --no-cache --update alpine-sdk \
     nodejs \
     yarn \
     protoc \
-    python3 \
+    python2 \
 && git clone --branch $VERSION https://github.com/AaronDewes/lightning-terminal /go/src/github.com/lightninglabs/lightning-terminal\
 && cd /go/src/github.com/lightninglabs/lightning-terminal \
 && make install \
